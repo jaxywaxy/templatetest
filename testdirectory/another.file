@@ -1,0 +1,6 @@
+Download latest version of Sonarr's OSX package from https://download.sonarr.tv/v2/master/latest/NzbDrone.master.osx.zip
+Open the archive and drag the Sonarr icon to your Application folder.
+Note: In macOS 10.12+ Gatekeeper App Translocation will prevent Sonarr run directly from the Downloads folder from updating
+Open Sonarr.app
+You should now be able to access Sonarr at http://localhost:8989
+Using Homebrew Cask
