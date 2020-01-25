@@ -1,0 +1,19 @@
+created: 20190616041226462
+modified: 20190616042809997
+tags: TableOfContents
+title: create codedeploy from cli + cli commands
+type: text/vnd.tiddlywiki
+
+ aws deploy create-deployment-group --application-name CLIApplication --deployment-group-name CLIApplication-deployment-group --ec2-tag-filters Key=Name,Value=codedeploytestinstance,Type=KEY_AND_VALUE --deployment-config-name CodeDeployDefault.AllAtOnce --service-role-arn arn:aws:iam::251421025863:role/CodeDeployServiceRole
+
+
+list applications
+
+aws deploy list-applications
+
+delete applications 
+
+aws deploy delete-application --application-name <name> 
+
+rename applications
+aws deploy update-application --application-name <name> --new-application-name <new-name>

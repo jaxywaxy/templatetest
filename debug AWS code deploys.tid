@@ -1,0 +1,24 @@
+created: 20190619021624534
+modified: 20190619022328366
+tags: TableOfContents
+title: debug AWS code deploys
+type: text/vnd.tiddlywiki
+
+!  List Deployment ID numbers:
+aws deploy list-deployments
+--application-name <APP-NAME> --deployment-group-name <DEPLOY-GROUP-NAME>
+Optional:
+--include-only-statuses <Failed or Succeeded> --create-time-range start=<2014-08-19T00:00:00>,end=<2014-08-20T00:00:00>
+!  List detailed deployment info:
+aws deploy get-deployment --deployment-id <ID #>
+!  Instance details:
+!  List instances
+aws deploy list-deployment-instances --deployment-id <DEPLOYMENT ID #>
+
+
+
+!  Application Revision details:
+!  List Application Revisions:
+aws deploy list-application-revisions --application-name <APP-NAME>
+!  List detailed Application Revision info:
+aws deploy get-application-revision --application-name <APP_NAME> --s3-location bucket=<S3-BUCKET>, bundleType=<TYPE>,eTag=<TAG-VALUE>,key=<FILE-NAME>

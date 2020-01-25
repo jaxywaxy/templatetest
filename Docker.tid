@@ -1,0 +1,42 @@
+created: 20190531022859155
+modified: 20190708222155194
+tags: docker TableOfContents
+title: Docker
+type: text/vnd.tiddlywiki
+
+https://docs.docker.com/get-started/
+
+## List Docker CLI commands
+docker
+docker container --help
+
+## Display Docker version and info
+docker --version
+docker version
+docker info
+
+## Execute Docker image
+docker run hello-world
+
+## List Docker images
+docker image ls
+
+## List Docker containers (running, all, all in quiet mode)
+docker container ls
+docker container ls --all
+docker container ls -aq
+
+
+
+docker ps 
+docker stop <container id>
+
+docker repositories
+
+hub.docker.com
+
+authenticate with docker hub 
+
+docker login --username  <hub username> --email <hub email>
+
+https://docs.docker.com/engine/reference/builder/

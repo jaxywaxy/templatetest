@@ -1,0 +1,9 @@
+created: 20190618202725207
+modified: 20190619020128055
+tags: 
+title: AWS codedeploy - create skeleton
+type: text/vnd.tiddlywiki
+
+aws deploy create-deployment-group --generate-cli-skeleton
+
+aws deploy create-deployment-group --cli-input-json-file://<jsonfile>.json

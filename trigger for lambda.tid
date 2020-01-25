@@ -1,0 +1,33 @@
+created: 20190616003942163
+modified: 20190616011117964
+tags: TableOfContents
+title: trigger for lambda
+type: text/vnd.tiddlywiki
+
+{
+   "FunctionName": "CodeCommitTriggerFunction",
+   "StatementId" : "1",
+   "Action": "lambda:InvokeFunction",
+   "Principal": "codecommit.amazonaws.com",
+   "SourceArn": "<arn:aws:codecommit:us-east-1:8093432443EXAMPLE:MyDemoRepo>",
+   "SourceAccount": "<8093432443EXAMPLE>"
+}
+
+upload to lambda to use 
+
+aws lambda add-permission --cli-input-json file://CodeCommitLambdaPersmission.json
+
+in IAM add lambda_base_execution 
+find inline policy
+policy generator
+
+create inline policy
+
+-allow
+-AWS Service = AWS CodeCommit
+-Actions = GetRepository
+ARN = paste in respository ARN
+
+add statement ---> next step
+
+

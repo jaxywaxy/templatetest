@@ -1,0 +1,8 @@
+created: 20190709052202464
+modified: 20190709052223172
+tags: 
+title: Jenkins - brew start/stop
+type: text/vnd.tiddlywiki
+
+brew services start jenkins
+brew services stop jenkins

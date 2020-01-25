@@ -1,0 +1,11 @@
+created: 20190616053502861
+modified: 20190616054319503
+tags: 
+title: codedeploy - deploys
+type: text/vnd.tiddlywiki
+
+deploy from an s3 bucket
+
+push to bucket
+
+aws deploy push --application-name <NAME> --description <DESCRIPTION> --ignore-hidden-files --s3-location s3://<bucket arn>/<filename>.zip --source .

@@ -1,0 +1,18 @@
+created: 20190615221513604
+modified: 20190615223703285
+tags: TableOfContents
+title: migrating existing repositories to code commit
+type: text/vnd.tiddlywiki
+
+must be git based repository -- anything else must be migrated to git first e.g. subversion
+github
+bitbucket
+
+
+create new repo in code commit
+
+then ]
+git clone --mirror <repo to migrate url e.g. from github> <my local temp directory >
+
+cd to local temp directory 
+git push <url of repo to migrate to > --all

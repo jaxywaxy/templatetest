@@ -1,0 +1,9 @@
+created: 20190615051133735
+modified: 20190615221512109
+tags: TableOfContents
+title: aws codecommit
+type: text/vnd.tiddlywiki
+
+git clone <git repository URL> <local repository name>
+
+aws codecommit get-repository --repository-name <name> 

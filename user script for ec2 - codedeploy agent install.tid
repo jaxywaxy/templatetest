@@ -1,0 +1,20 @@
+created: 20190616034438731
+modified: 20190616041226627
+tags: 
+title: user script for ec2 - codedeploy agent install
+type: text/vnd.tiddlywiki
+
+create service role, policy and 
+
+#!/bin/bash
+sudo yum -y update
+sudo yum install -y ruby
+sudo yum install -y aws-cli
+cd /home/ec2-user
+aws s3 cp s3://aws-codedeploy-us-east-1/latest/install . --region us-east-1
+chmod +x ./install
+./install auto
+
+
+check
+ sudo service codedeploy-agent.service status

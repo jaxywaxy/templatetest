@@ -1,0 +1,132 @@
+created: 20190616051743534
+modified: 20190616052720437
+tags: 
+title: codedeploy - app Spec file
+type: text/vnd.tiddlywiki
+
+yaml formmated file - defines the source and destination of apps files
+can also have specific permissions -
+
+must be named appspec.yml
+
+if source refers to a file - file will be installed ... if '/' all revisions will be installed .. if source is a directory this directory will be installed.
+
+  version:
+This number is completely arbitrary and can be used by you to keep track of versions/revisions.
+!  os:
+This is where you will specify the operating system of the instances you are deploying to. There are only two options, and you must choose only one of them.
+1) linux
+2) windows
+!  Example: version: 1.0
+os: linux
+version: 2.0 os: windows
+
+
+  Base Format: files:
+- source: <source-file-location> destination: <destination-file-location>
+  !  Example: files:
+- source: /html/wonderwidgets.html destination: /mywebsitefiles
+- source: /executables destination: /exe
+(c:\mywebsitefiles) (c:\exe)
+!  Source Options:
+!  If ‘source’ refers to a file, ONLY that file will be installed
+!  If ‘source’ refers to a directory, ALL directory content will be
+installed
+!  If ‘source’ is just a single ‘ / ’, ALL files in the Revision will be
+installed
+
+
+Base Format: permissions:
+- object: <object-specification> pattern: <pattern-specification> except: <exception-specification> owner: <owner-account-name> group: <group-name>
+mode: <mode-specification> acls:
+- <acls-specification> context:
+user: <user-specification> type: <type-specification> range: <range-specification>
+type:
+- <object-type>
+object (required):
+The target directory or file(s) you want to set permissions on.
+!  pattern:
+Specify a pattern to identify certain type of files to apply permissions to.
+!  except:
+Specify exceptions to the above pattern
+!  owner:
+Set the owner for the object (source settings if blank)
+!  group:
+Set the group for the object (source settings if blank)
+!  mode:
+Set the permissions value (think chmod command)
+!  acls:
+Access Control List entries applied to the object.
+!  context:
+For Security-Enhanced Linux (SELinux)-enabled instances.
+  !  user:
+!  type:
+!  range:
+The SELinux user
+The SELinux type name The SELinux range specifier
+!  type:
+Specify if the object is a file or a directory
+!  file: Permissions will be applied only to object’s files !  directory: Permissions will be applied recursively to all directories, and files in the object.
+
+!  Example: permissions:
+- object: /wonderwidgets/html pattern: “*.html”
+except: “index.html”
+mode: 400
+type: - file
+!  acls&context: acls:
+- u:matt:rw
+- u:kelly:rwx
+context:
+user: unconfined_u
+type: httpd_sys_content_t range: s0
+
+Allows you to link deployment lifecycle event hooks to scripts.
+!  Deployment Lifecycle Event Hooks:
+  !  ApplicationStop
+!  DownloadBundle
+!  BeforeInstall
+!  Install
+!  AfterInstall
+!  ApplicationStart
+(Before app revision is downloaded, can’t be used to on the first revision upload)
+(CodeDeploy Agent copies files to a temp loc.)
+(Time to run pre-install tasks, i.e. decrypting files or backing up the current version)
+(CodeDeploy Agent installs files from temp loc. to your destination folder)
+(Time to configure your application or change permissions on files)
+(Restart services that were stopped during ApplicationStop)
+(Verify deployment was competed successfully)
+!  ValidateService
+*highlighted hook
+
+
+ AppSpec File “Hook” Section:
+!  Base Format: hooks:
+<deployment-lifecycle-event-name> - location: <script-location>
+timeout: <timeout-in-seconds> runas: <user-name>
+!  location (required):
+The location of the script file that you want to run.
+!  timeout:
+The amount of time you want to “allow” the script to run before it is considered to have failed (if not fully competed). Default timeout is set to 3600 second (1 hour).
+!  runas:
+The user to “assume” when running the scripts are ones you can run scripts against
+
+
+The scripts that run during the deployment lifecycle can also access the following environment variables:
+APPLICTION_NAME:
+The current CodeDeploy Application name.
+DEPLOYMENT_ID:
+An ID number that CodeDeploy assigned to the current deployment.
+DEPLOYMENT_GROUP_NAME:
+The name of the current CodeDeploy Deployment Group.
+DEPLOYMENT_GROUP_ID:
+An ID number that CodeDeploy assigned to the current Deployment Group.
+LIFECYCLE_EVENT:
+The name of the current deployment lifecycle event. *These environment variables are local to each lifecycle event.
+
+Example: hooks:
+AfterInstall:
+- location: Scripts/RunResourceTests.sh
+timeout: 180
+
+
+

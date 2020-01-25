@@ -1,0 +1,12 @@
+created: 20190616044436901
+modified: 20190616044527625
+tags: 
+title: custom codedeploy deployment configurations
+type: text/vnd.tiddlywiki
+
+!  CLI Command:
+aws deploy create-deployment-config
+Options
+--deployment-config-name <NAME> --minimum-healthy-hosts type=<OPTION>,value=<# or %>
+!  HOST_COUNT
+!  FLEET_PERCENT

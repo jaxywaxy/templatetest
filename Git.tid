@@ -1,0 +1,46 @@
+created: 20190611222502761
+modified: 20190615221506742
+tags: TableOfContents
+title: Git
+type: text/vnd.tiddlywiki
+
+A Working Directory: where you’ll be doing all the work: creating, editing, deleting and organizing files
+A Staging Area: where you’ll list changes you make to the working directory
+A Repository: where Git permanently stores those changes as different versions of the project
+The Git workflow consists of editing files in the working directory, adding files to the staging area, and saving changes to a Git repository.
+
+
+git init
+git status -sb
+git add {filename}
+git diff {filename}
+git commit -m "{comment}"
+git log
+git rm --cached <fielname>
+
+git config --global credential.helper '!aws --profile codecommit credential-helper $@'
+ git config --global --edit
+git pull origin master 
+git checkout -b <new branch name>
+git branch <newBranch name>
+git merge   - note must be in the branch that you want to merge into
+
+git push
+git remote
+git branch
+git diff --stat <remote name> <branch name>
+
+git tag 
+git show
+git tag -d <tag name .   delete a tag
+git show <tag name>
+git tag <tag name> <commit id>  find commit id from git log first 7 characters
+
+git show <version>
+
+
+managing tags with central repository 
+git push <remote name > <tag name>
+git  ls-remote -tags
+git fetch -tags
+git push --delete <remote name> <tagname>

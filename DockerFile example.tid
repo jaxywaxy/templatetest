@@ -1,0 +1,13 @@
+created: 20190708222210548
+modified: 20190708222226242
+tags: TableOfContents
+title: DockerFile example
+type: text/vnd.tiddlywiki
+
+FROM node:carbon
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 8080
+CMD ["npm", "start"]

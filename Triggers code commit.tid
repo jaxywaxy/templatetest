@@ -1,0 +1,28 @@
+created: 20190615223713389
+modified: 20190616003753523
+tags: TableOfContents
+title: Triggers code commit
+type: text/vnd.tiddlywiki
+
+one of the following events can invoke a trigger :
+- all repository events
+- a push to an existing branch
+- creation of a branch 
+- deletion of a branch
+
+triggers can invoke actions in - 
+
+SNS notification
+aws LAMBDA
+also utilise SNS ability to interact with other services eg. SQS 
+
+
+in repo ... select settings from left hand menu. 
+
+set up trigger
+
+commands 
+
+
+aws codecommit get-repository-triggers --repository-name LinuxAcademyLab
+aws codecommit get-repository-triggers --repository-name 

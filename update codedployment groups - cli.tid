@@ -1,0 +1,16 @@
+created: 20190616042809726
+modified: 20190616044436345
+tags: TableOfContents
+title: update codedployment groups - cli
+type: text/vnd.tiddlywiki
+
+Editadeploymentgroup/configurationelements: required arguments:
+aws deploy update-deployment-group --application-name <NAME> --current-deployment-group-name <NAME>
+Optional (elements to change):
+--new-deployment-group-name <NAME>
+--ec2-tag-filters
+--on-premises-instance-tag-filters Key=Name,Value=<VALUE>,Type=KEY_AND_VALUE --auto-scaling-groups <NAME>
+--deployment-config-name CodeDeployDefault.<SELECTOPTION> --service-role-arn <SERVICE-ROLE_ARN>
+!  Deleteadeploymentgroup/configuration:
+aws deploy delete-deployment-group --application-name <NAME>
+  --deployment-group-name <NAME>
